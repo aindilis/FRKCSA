@@ -73,3 +73,5 @@
 
 (finish replacing logicmoo->frkcsa in here:
  /var/lib/myfrdcsa/collaborative/git/frkcsa-project-kb/subl)
+
+(don't include symlinks to any unreleased content)
