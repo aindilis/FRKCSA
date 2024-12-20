@@ -75,3 +75,19 @@
  /var/lib/myfrdcsa/collaborative/git/frkcsa-project-kb/subl)
 
 (don't include symlinks to any unreleased content)
+
+(https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning)
+
+(btw other bigger reason not to have those symlinks is that it
+ prevents from making another system that implicitly only runs on
+ your machines, by having absolutely no reference to your
+ filesystem. So in my view this is not a pedantic or nitpicky
+ thing but is directly about the most critical problem making
+ your current system unreleasable. The new codebase should
+ ideally be essentially self-contained, or at least only
+ reference dependencies that are publicly available, from the
+ start, so that you don’t have to go and untangle this again
+ later after the same form of technical debt has already
+ accumulated into the new system.)
+
+(see iso 27001)
