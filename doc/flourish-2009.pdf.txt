@@ -1,0 +1,467 @@
+POSI Overview
+
+Andrew Dougherty
+FRDCSA Project
+Flourish Conference
+April 4, 2009
+
+Motivation for FRDCSA
+Zero Marginal Cost (ZMC) enables free software
+to deliver benefits to large numbers of users,
+only cost is development
+How do we maximize the benefits?
+
+General Problem Solving
+Computers as theorem provers
+How do we maximize solution space?
+Turns out no program can solve all mathematical
+problems
+But we can find a sequence of programs, each more
+complete than the next
+This sequence has to eventually increase in size,
+otherwise, cannot fit the information required
+
+This is the goal of the FRDCSA
+
+Maximizing Software Capabilities
+Creating more sophisticated, capable software
+Write it ourselves
+Or, gather and index existing software
+
+FRDCSA takes both approaches
+
+Indexing Existing Software
+RADAR/Packager/Architect (the
+Cluster/Study/Apply (CSA) of FRDCSA)
+Make packages of all software
+Create a comprehensive ontology (a database of
+facts) about all free software
+
+Writing Our Own Software
+Indexing is necessary, however insufficient
+Must write our own software
+Many areas (especially “humanitarian”) that
+needed software
+Doctor software (Akahige)
+Meal planner
+
+Bus planner, Task Manager (Verber/PSE), etc
+In all, > 90 internal, > 50 minor codebases
+
+Solve Problems That Affect People
+How can we be of the most assistance
+Help people achieve their goals
+Index their goals
+Find out what skills they want to learn
+
+Help them to work collaboratively to complete their
+goals
+
+Started new meta-project to address these issues
+POSI (POSI Open Source Initiative)
+
+POSI Collaboration Group, Software
+and Services
+POSI is a group that wants to help members
+achieve their goals through improved
+collaboration on shared goals and projects
+Map out many of the goals of POSI members,
+their abilities, and their interests, and connect
+members with others who have the interest and
+ability to complete shared goals
+Mainly meet online
+
+Hanging Out
+IRC
+
+Daily IRC meetings
+
+VOIP Conferencing
+
+Ad-hoc team assembly
+
+Web UIs
+
+Occasional productivity
+“competitions” or
+POSIthons
+
+Shared servers
+Screen “kibitzing”
+
+Simple Example of Goals, Interests
+and Abilities
+Person A
+
+Person B
+
+Goals:
+
+Goals:
+
+Learn Java
+Purchase new laptop
+
+Abilities:
+Python
+Shell scripting
+
+Interests:
+Biology
+
+Develop for Android
+
+Abilities:
+Acting
+Java
+
+Interests:
+Teaching: Java
+
+Simple Example of Goals, Interests
+and Abilities (GIAs)
+In reality user probably asserts hundreds or
+thousands of goals, same for interests and
+abilities
+The software looks at the constraints and helps
+to start ad-hoc teams to solve problems that are
+critical to the entire group and also problems
+that are critical to individual members
+
+How GIAs are Added
+Example: IRC Interface
+User enters:
+“Goal: install gnewsense on a VM”
+“Learn: RDF, OWL-S, Android Development”
+
+Other possible key words (so far):
+done assert skills suggestion feature poll policy goal
+skill learn project master interests note question
+study
+
+Flows naturally in conversations:
+18:09:54 aindilis what time?
+18:10:25 aindilis hmm I don't have all your contact information...
+18:10:50 aindilis Goal: periodically upload the contact info of new contacts to all
+different sites like Facebook, icedove, etc.
+
+GIAs are Stored in a Knowledge
+Based System (KBS)
+andrewdo@justin:/var/lib/myfrdcsa/codebases
+/internal$ corpus --senders PSE-X -s . -d 100
+-k pse-x
+Starting ModManager...
+'Get a new laptop'
+("eases" "107405" "107420")
+("depends" "107407" "107405")
+("eases" "107405" "107408")
+("depends" "107405" "107409")
+("eases" "107405" "107410")
+("costs" "107405" "\$400")
+("goal" "107405")
+("prefer same" "107405" "107408")
+'install FRDCSA on my new laptop'
+("depends" "107407" "107405")
+'Present at Flourish'
+("eases" "107405" "107408")
+("goal" "107408")
+("prefer same" "107405" "107408")
+("ethicality-concern" "107408" "evangelism")
+
+'Make a list of the features we want to have in
+a laptop'
+("depends" "107405" "107409")
+'Have mobile wireless access through phone'
+("eases" "107405" "107410")
+("eases" "107411" "107410")
+("costs" "107410" "\$60 / mo")
+("provides" "107410" "107415")
+'Get an android based phone'
+("eases" "107411" "107410")
+("costs" "107411" "\$200")
+("depends" "107412" "107411")
+("eases" "107414" "107411")
+'Have FRDCSA Interactive Execution Monitor
+working'
+("depends" "107412" "107411")
+("depends" "107412" "107413")
+("goal" "107412")
+("prefer same" "107412" "107416")
+
+POSI Web Interface
+Web-based
+semantic web
+like knowledge
+editor for POSI
+knowledge
+Additional social
+networks
+under
+development
+
+Priority System Editor Sample
+Interface
+
+Have a Priority System GUI Editor
+Show completed goals as darkened out
+Enable full text search
+Drop down menus on right click
+Allow persons to lodge disputes about the utility
+or purpose of a goal
+Real time updating across multiple clients
+Enforce goals as being subgoals of larger goals
+Enable linking goals with various predicates
+
+Goal of Collaboration
+Identify shared goals, both automatically and by
+the user
+Calculate the relative importance of each goal to
+the group as a whole, calculated by how much
+it enables the group to satisfy other goals
+Calculate the relative importance of each goal to
+each member
+Still need to work out the exact logic
+
+Illustration of Identifying Shared
+Goals
+
+Illustration of Identifying Shared
+Goals
+
+Illustration of Identifying Shared
+Goals
+
+Illustration of Identifying Shared
+Goals
+
+Illustration of Identifying Shared
+Goals
+
+Identifying Shared (or Repeated)
+Goals
+Goals are expressed in a Natural Language (NL)
+eg. English: “Install FRDCSA on my new
+laptop”
+Can be translated into logic (not very well yet):
+“aindilis: we can mine the projects of members by
+scraping those sites”
+we (x1)', 'mine (e5, x1, x2)', 'project (x2)', 'of (x2, x3)',
+'member (x3)', 'by (e5, e6)', 'scrap (e6, x1, x4)', 'site
+(x4)''
+
+Recognizing Textual Entailment (RTE) identifies
+goals with the same meaning
+
+Recognizing Textual Entailment
+RTE asks, given two texts, if we assume the first
+one is true, must the second one also be true?
+Example sentence pair:
+a) Some plants grow really well in a hydroponic
+environment, but others do not.
+b) Plants are grown in water or in substances other
+than soil.
+
+In this case, the answer is YES - a entails b
+
+Determine Who Can Solve Which
+Goals
+We need to:
+Figure out who is competent in what skills
+Who is interested in what subjects
+Who works well with whom
+
+Turns out all of this can be done with Social
+Network Analysis (SNA)
+SNA involves looking at organizations or groups
+and measuring their characteristics
+
+Experience Modeling System (EMS)
+Need to figure out members' abilities
+Directly ask members (web forms, chat bots)
+Have members actively assert them
+On IRC:
+
+Determine abilities from available data
+
+EMS Gathers Information About
+Member's Abilities
+Pre-formatted or extracted ability data
+Resumes and cover letters
+Online skill profiles
+
+Inferred ability data
+Automatically analyze text (emails, status updates
+(tweets/facebook), IM/IRC chats, web pages,
+documents, deliverables, etc)
+Other methods (please suggest)
+
+Ability Extraction from Text
+Use Wikipedia, Library of Congress subject
+hierarchy, subject ontologies, resume and
+position datasets, skills inventories, etc, to
+develop a model of what terms are used in
+which area
+Use Bayesian inference or other techniques to
+figure out which skills the user is probably
+familiar with based on which terminology they
+use
+
+Planning for Collaboration
+POSI has an advanced Project Management
+system
+Based on the FRDCSA systems Verber/PSE
+All these constraints on who knows what, who is
+interested in what, who has what goals,
+deadlines, duration of events, members
+calendars are fed into a temporal planner, and
+the resulting possible choices are returned
+
+Verber Domain and Problem Specs
+
+Verber/PSE vs. Bug Tracker
+Similarities
+Due dates
+Task status
+Assignees
+Project
+
+Differences
+Verber has
+Temporal planner
+Logic and rules
+
+Verber will have
+Translation of goal text
+into logic
+Interactive Execution
+Monitor
+GUI editor for task
+dependencies
+
+Verber
+More information is available from:
+http://frdcsa.org/~andrewdo/writings/semweb.odp
+http://frdcsa.org/~andrewdo/writings/semweb.pdf
+
+Concerns with POSI in General
+HUGE privacy concerns
+All this information can and will be used against
+members, if they do not secure the information
+Solution:
+distribute the POSI code to each user, anonymize it,
+set up privacy controls, and so on
+put users themselves in control of the data (on their
+local machines) and use peer to peer, encrypted,
+deidentified etc techniques
+
+Conflict Resolution
+Develop sophisticated techniques for resolving
+resource conflicts, identifying false conflicts
+Allow people to dispute goals (i.e. that
+marginalize them for instance)
+
+FRDCSA Revisited
+FRDCSA is the middleware that runs POSI
+Consists of over 90 internal (relatively major)
+codebases and maybe 50 minor, along with
+hundreds of external codebases (acquired from
+the web)
+10 year old project with lots of cumulative
+development
+More info:
+http://frdcsa.org
+http://frdcsa.onshore.net/frdcsa
+
+Job-Search
+One of the FRDCSA internal codebases
+Helps free software developers be financially
+stable and thus able to work on free software
+Spidered Craigslist, resumeXML generation
+Will use Experience Modeling System when
+that's complete
+Developed a resume matcher that matches users
+with jobs they can perform, also will suggest indemand skills they can learn
+
+POSIC
+Job-search was a popular software/service,
+decided to turn it into a consultancy
+Hence POSI Consultancy = POSIC
+POSIC is therefore a business which supports
+POSI and free software in general
+POSI is free software, hence POSIC and others
+can use it
+Help developers find projects that pay them to
+extend their projects
+
+Intelligent Tutoring Systems
+Long tradition of research in developing
+automated tutors for subjects
+Develop fine-granularity models of exactly what
+the person knows
+Based on what they know and what they want to
+know, compute a lesson plan
+
+System-X Intelligent Tutor
+POSI helps connect learners with teachers, or if
+none exist, teach the subject with System-X
+Develops a large library (mainly using text
+summarization of existing online learning
+resources) of learning materials
+Uses CLEAR to read learners the texts
+Assesses understanding through tests
+Records results in Experience Modeling System
+
+Conclusion
+FRDCSA is a 10 year old project developing
+Friendly Artificial Intelligence
+POSI is a group that tries to identify and satisfy
+fine-grained goals of it members through
+collaboration and ad-hoc team creation
+
+Availability
+POSI uses FRDCSA as the middleware
+Unfortunately, FRDCSA has not been released
+Need to clean it up (license compliance, personal
+information removal) before release
+Is available to checkout on GIT for people
+interested in using it/helping to clean it up
+Very capable system
+10 GB without datasets, 100 GB with
+
+Ways to Succeed with POSI
+Get an account on posithon.org (has copy of
+FRDCSA)
+Visit website (http://posithon.org) and read up
+Join #posi channel (on irc.freenode.net) and
+record statements about what you'd like to
+learn, your skills, goals, and interests
+Join mailinglist (link on website)
+Record intentions about how to improve POSI to
+meet your needs and talk to existing members
+
+Ways to Succeed with POSI
+If you are a developer, consider:
+Work on few remaining bugs with IRC bot
+Developing software for extraction of skills from text
+Develop Java or otherwise (perhaps Processing?)
+GUI for Shared Task Manager / Priority System
+Editor
+Figure out how to use POSI software to meet your
+own software development needs
+Suggest new development projects
+
+POSI-Chicago Meeting
+(Immediately following this talk)
+We will be meeting at the POSI/FRDCSA booth
+after this talk (10:50 am)
+Come see what's going on and/or sign up to the
+mailing list
+
+The End Questions?
+More information is available online at:
+http://posithon.org
+http://frdcsa.org
+
+Thank you !!!
+
+
