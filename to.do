@@ -19,7 +19,7 @@
 (use 7700X + 2TB SSD system for FRKCSA, rebuild periodically and
  CI, using terraform, github workflows)
 
-(set up in RAID 0 or what not with the 2x 2TB SSDs)
+(set up in RAID 1 or what not with the 2x 2TB SSDs)
 
 (retrieve POSI vision and eventually implement that as the basis
  of collaboration)
