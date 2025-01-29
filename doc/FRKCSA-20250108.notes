@@ -1,0 +1,67 @@
+what do I do once I collect software?
+it goes into a "digestive system."
+First, it is studied.
+Everything is analyzed by a variety of plugins 
+Such as LLMs reading the documentation, description and so forth.
+Among the facts it deduces from the software are English descriptions of capabilities/features the software has
+The FRDCSA has a preexsting KB of tasks.
+There is a matchmaker agent (called Architect) which attempts to find problems that the software affords solution to
+one sec:
+
+https://altruisticsoftware.org/frdcsa/introduction/sys.jpg
+
+https://altruisticsoftware.org/frdcsa/introduction/old-sys.jpg
+
+The facts are deduced in Sayer/IAEC.
+Can be read about in the README here: https://github.com/aindilis/iaec 
+When there are matches made, it records these matches into a queue for integration, part of BOSS, which is a software engineering manager agent
+One of the things that the system does is attempt to learn new information about other systems, from any sources it has, including artifacts from codebases such as PDFs and documentation.
+The system (Sentinel) is always extracting information from the digestive tract.
+It extracts various named entities, especially the names of software systems, their authors, any associated organizations.
+It then uses those methods I mentioned to attempt to locate the software online.
+If it finds a URL for the software, or for a metasite containing a lot of software, that it hasn't seen before, it adds it to the queue.
+It periodically refreshes the sites in the queue, that are stored in an ArchiveBox like persistent cache.
+Here is more information on this part of the system, known as Byte Library:
+https://frdcsa.org/~andrewdo/projects/bytelibrary-screenshots/
+Just page through those in order.
+Basically, from the URLs and metasite URL,s, it gets more software and data artifacts.
+Data that is mostly not executable code is siphoned to the /var/lib/myfrdcsa/datasets structures.
+and linked to and indexed.
+So, onto packaging-queue.
+When a URL is found, it takes the data it knows about for that particular codebase, all identifying facts in the knowledge graph about that system, and tries to determine the urgency, wrt the tasks that are stored in the various goaling systems of the project, as to what software is most important to integrate next.
+Let me find the code for that, I think it's in score.
+This may be that: https://github.com/aindilis/score/blob/master/Score/Index.pm
+Computes user's score based on how much progress was made. - aindilis/score
+It tells the score using the same computation that completing the task would have on the user's effectiveness
+for each task, and has a measure over the total tasks which the software enables completion of.
+(theoretical compeltion. i.e. there is a fire, I have a bucket and water. 10 points).
+Um, this is all part of the RADAR/Packager/Architect toolchain.
+Alright, so, what do we DO with the software, besides note that it is available to solve problems?
+Packager begins trying to determine how installable the software is.
+It is first archived. If it is a git repo, it goes into /var/lib/myfrdcsa/repositories/external/git
+if it is a different type of repo, it goes into hg, subversion, etc, etc. if none, it usually goes into /var/lib/myfrdcsa/codebases/external
+repos are then backed up into that codebases/external dir
+from there it is extracted (all automatically) to /var/lib/myfrdcsa/sandbox
+it used to be the case that packager would begin packaging there.
+However, the package archive died one day.
+and hasn't fully recovered. I lost most of the packaging materials. i.e. the <PACKAGE>/debian dirs.
+well, they're recoverable from the original packages I think
+which I still have, but I haven't completed that recovery task
+but,
+sandbox has evolved to be where things just "get installed" or "run"
+so, when I fix Packager, I'm going to create a new thing like packaging or staging or something.
+and extract to there and then package from there.
+The rules for packaging for Debian are complex.
+There is "debian-rulebase" which is a cache of the most recent version of documents.
+(I just realized that I shouldn't type single sentences, as it may create a lot of alerts. So I am going to type paragraphs now).
+debian-rulebase documentation defines how to make packages. The LLMs peruse and use this documentation as part of the new packaging system called Packager/ESP. https://github.com/aindilis/autonomous-ai-agent/blob/main/agents/packager.pasl There are a lot of related Agents but the whole system is still under development. The coordinate agents take care of other related tasks. Basically, the agentic LLM system co-recursively calls SPAMI and the LLM, and iterates towards having packages made. When the packages are made, they are pushed into a private repo using dput and mini-dinstall.
+So like everything I have covered is a very small fraction of just the CSA toolchain
+and FRDCSA is more than just FRD + CSA.
+It helps to just type it all out. But like I said, this is like epsilon much of the project right now.
+(I see, I basically have to write the project's documentation finally, probably worth it by now).
+(Probably using Org-babel->LaTeX)
+Already on eight pages of human written text.
+If I continue like this, I expect it to be many hundreds of pages long.
+Regarding FLP, it latches onto the user much more aggressively (but is also fierce about maintaining informed consent, privacy and autonomy). It's like a GPS, so it wouldn't only list available shelters, as shelters are sometimes not where the homeless would choose to go, but would have databases of sleeping spots, would try to keep it a secret where they went. It would be with them via the phone (as 70% or so of homeless had cell phones, in one study) or using paper (per the homeless story example). It would be a GPS for them, always on, always calculating, with many OPS devoted to each individual doing contingency planning.
+I've had a long time to perseverate on how this is going to work.
+

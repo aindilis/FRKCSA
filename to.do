@@ -91,3 +91,13 @@
  accumulated into the new system.)
 
 (see iso 27001)
+
+(I'd like to reboot FLP as well, using sCASP and other Event
+ Calculus tools, microtheory support, opencyc integration, RTEC
+ for sensor network and maybe TimeScaleDB or something for
+ recording/querying/visualization of sensor data, and replace
+ UniLang with MQTT or ZeroMQ or something like that.)
+
+(A major advantage of having FLP is we can map all the ideas
+ right into the proper ways of doing things now that have emerged
+ alongside FLP.)
